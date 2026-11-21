@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A 24-week, one-hour-a-day plan to get ready for MNC backend engineering roles.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232b55d6'/%3E%3Cpath d='M4 9l3 3 5-7' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<title>Switch Ready</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky build-bar header + tab rail; one reading column (max 1080) with grid sections that collapse to one column on phones. */
+:root {
+  --bg: #f4f6f9; --surface: #ffffff; --sunk: #e9edf3; --line: #d6dce6;
+  --fg: #141b2b; --muted: #5a6478; --accent: #2b55d6; --accent-soft: #e2e9fd;
+  --done: #17845f; --done-soft: #dcf1e8; --warn: #b26a00; --warn-soft: #fbeed6; --hard: #b8322f; --hard-soft: #fbe1e0;
+  --cell0: #e3e8ef; --cell1: #b9e3cf; --cell2: #6cc59e; --cell3: #2a9c6f; --cell4: #136c4b;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f131c; --surface: #171c28; --sunk: #1e2433; --line: #2b3346;
+  --fg: #e7ebf3; --muted: #98a2b8; --accent: #7d9bff; --accent-soft: #212c4d;
+  --done: #4fcf98; --done-soft: #15352a; --warn: #f0b04a; --warn-soft: #3a2c12; --hard: #ff7b75; --hard-soft: #3d1c1c;
+  --cell0: #232a3a; --cell1: #1b4636; --cell2: #23704f; --cell3: #33a06f; --cell4: #5fd59c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f131c; --surface: #171c28; --sunk: #1e2433; --line: #2b3346;
+  --fg: #e7ebf3; --muted: #98a2b8; --accent: #7d9bff; --accent-soft: #212c4d;
+  --done: #4fcf98; --done-soft: #15352a; --warn: #f0b04a; --warn-soft: #3a2c12; --hard: #ff7b75; --hard-soft: #3d1c1c;
+  --cell0: #232a3a; --cell1: #1b4636; --cell2: #23704f; --cell3: #33a06f; --cell4: #5fd59c; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 15px/1.6 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+a { color: var(--accent) }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.2; margin: 0 }
+h2 { font-size: 1.6rem; font-weight: 700 }
+h3 { font-size: 1.12rem; font-weight: 700 }
+p { margin: 0 }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar { display: flex; align-items: center; gap: 16px; padding-block: 12px; flex-wrap: wrap }
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0 }
+.brand h1 { font-size: 1.3rem }
+.brand .sub { color: var(--muted); font-size: .85rem }
+.bar .spacer { flex: 1 }
+.meter { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--muted) }
+.meter .track { width: 140px; height: 8px; background: var(--sunk); border-radius: 4px; overflow: hidden }
+.meter .fill { height: 100%; background: var(--done); transition: width .3s }
+.sync { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: 6px }
+.sync i { width: 8px; height: 8px; border-radius: 50%; background: var(--warn); display: inline-block }
+.sync.ok i { background: var(--done) }
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-bottom: 0 }
+nav.tabs::-webkit-scrollbar { display: none }
+nav.tabs a { text-decoration: none; color: var(--muted); padding: 8px 12px; border-bottom: 2px solid transparent; white-space: nowrap; font-weight: 500; font-size: .92rem }
+nav.tabs a:hover { color: var(--fg) }
+nav.tabs a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent) }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px }
+
+main { padding-block: 28px 64px; display: grid; gap: 28px }
+section.view { display: grid; gap: 24px }
+.lede { color: var(--muted); max-width: 68ch }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px }
+.grid2 > * { min-width: 0 }
+.panel.stack { align-content: start }
+.grid2 { align-items: start }
+@media (max-width: 560px) { .brand .sub { display: none } }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px }
+.grid3 > * { min-width: 0 }
+.stack { display: grid; gap: 12px }
+ul.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px }
+ul.dots { margin: 0; padding-left: 1.1em; display: grid; gap: 6px }
+
+/* week heat grid */
+.heat { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px }
+.heat button { aspect-ratio: 1; border: 0; border-radius: 4px; background: var(--cell0); cursor: pointer; padding: 0; position: relative; font: 500 .66rem var(--f-mono); color: var(--muted) }
+.heat button[data-l="1"] { background: var(--cell1) } .heat button[data-l="2"] { background: var(--cell2) }
+.heat button[data-l="3"] { background: var(--cell3); color: var(--surface) } .heat button[data-l="4"] { background: var(--cell4); color: var(--surface) }
+.heat button.now { outline: 2px solid var(--accent); outline-offset: 2px }
+.heat-legend { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: .78rem; flex-wrap: wrap }
+@media (max-width: 560px) { .heat { grid-template-columns: repeat(8, minmax(0, 1fr)) } }
+
+.bars { display: grid; gap: 10px }
+.barrow { display: grid; grid-template-columns: 150px 1fr 48px; gap: 12px; align-items: center; font-size: .9rem }
+.barrow .t { height: 8px; border-radius: 4px; background: var(--sunk); overflow: hidden }
+.barrow .t span { display: block; height: 100%; background: var(--accent) }
+.barrow .v { text-align: right; color: var(--muted) }
+@media (max-width: 480px) { .barrow { grid-template-columns: 110px 1fr 40px } }
+
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; font: 500 .72rem/1.7 var(--f-mono); background: var(--sunk); color: var(--muted); white-space: nowrap }
+.chip.E { background: var(--done-soft); color: var(--done) } .chip.M { background: var(--warn-soft); color: var(--warn) } .chip.H { background: var(--hard-soft); color: var(--hard) }
+.chip.acc { background: var(--accent-soft); color: var(--accent) }
+.tagrow { display: flex; flex-wrap: wrap; gap: 6px }
+
+/* check items */
+.check { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; cursor: pointer; padding: 6px 4px; border-radius: 6px }
+.check:hover { background: var(--sunk) }
+.check input { appearance: none; width: 18px; height: 18px; margin: 2px 0 0; border: 1.5px solid var(--line); border-radius: 4px; background: var(--surface); display: grid; place-items: center; cursor: pointer }
+.check input:checked { background: var(--done); border-color: var(--done) }
+.check input:checked::after { content: ""; width: 5px; height: 9px; border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px) }
+.check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line) }
+.check span { min-width: 0 }
+
+/* week cards */
+.week { background: var(--surface); border: 1px solid var(--line); border-radius: 10px }
+.week > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 14px 18px }
+.week > summary::-webkit-details-marker { display: none }
+.wk-n { font: 700 1.4rem var(--f-display); color: var(--muted) }
+.week.current { border-color: var(--accent) }
+.week.current .wk-n { color: var(--accent) }
+.wk-meta { display: grid; gap: 2px; min-width: 0 }
+.wk-meta .ph { font: 500 .7rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+.wk-prog { font: 500 .8rem var(--f-mono); color: var(--muted); white-space: nowrap }
+.wk-prog.full { color: var(--done) }
+.week .body { padding: 0 18px 18px; display: grid; gap: 16px; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) }
+@media (max-width: 760px) { .week .body { grid-template-columns: 1fr } }
+.why { color: var(--muted); font-size: .92rem; grid-column: 1 / -1; border-left: 3px solid var(--accent-soft); padding-left: 12px }
+.res a { display: grid; grid-template-columns: 62px 1fr; gap: 8px; text-decoration: none; color: var(--fg); padding: 6px 8px; border-radius: 6px; font-size: .9rem; align-items: baseline }
+.res a:hover { background: var(--sunk) }
+.res a b { font: 500 .66rem var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 500 }
+.res a span { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; min-width: 0 }
+
+/* toolbar */
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center }
+select, input[type="date"], input[type="search"] { font: inherit; font-size: .9rem; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg) }
+button.btn { font: 500 .88rem var(--f-body); padding: 7px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer }
+button.btn:hover { background: var(--sunk) }
+button.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface) }
+
+/* dsa table */
+.pattern { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden }
+.pattern > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap }
+.pattern ul { list-style: none; margin: 0; padding: 6px 10px 10px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px 12px }
+.prob { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; padding: 5px 6px; border-radius: 6px }
+.prob:hover { background: var(--sunk) }
+.prob a { color: var(--fg); text-decoration: none; min-width: 0; overflow-wrap: anywhere }
+.prob a:hover { text-decoration: underline }
+.prob.is-done a { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line) }
+.prob input { appearance: none; width: 18px; height: 18px; margin: 0; border: 1.5px solid var(--line); border-radius: 4px; background: var(--surface); display: grid; place-items: center; cursor: pointer }
+.prob input:checked { background: var(--done); border-color: var(--done) }
+.prob input:checked::after { content: ""; width: 5px; height: 9px; border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px) }
+
+.kv { display: grid; grid-template-columns: 180px 1fr; gap: 6px 16px; font-size: .92rem }
+.kv dt { color: var(--muted) }
+.kv dd { margin: 0 }
+@media (max-width: 560px) { .kv { grid-template-columns: 1fr } .kv dd { margin-bottom: 8px } }
+
+.star { display: grid; gap: 8px }
+.star dl { display: grid; grid-template-columns: 22px 1fr; gap: 6px 10px; margin: 0; font-size: .9rem }
+.star dt { font: 700 .85rem var(--f-mono); color: var(--accent) }
+.star dd { margin: 0 }
+.src { font-size: .8rem; color: var(--muted) }
+
+.fix { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; padding-block: 12px; border-top: 1px solid var(--line) }
+.fix:first-child { border-top: 0; padding-top: 0 }
+.fix .bad { color: var(--hard); font-size: .9rem }
+@media (max-width: 640px) { .fix { grid-template-columns: 1fr; gap: 4px } }
+blockquote { margin: 0; padding: 10px 14px; background: var(--sunk); border-radius: 8px; font-size: .92rem }
+.copy { float: right; margin-left: 8px }
+
+.strength li::marker { color: var(--done) }
+.gap li::marker { color: var(--hard) }
+.day { display: grid; grid-template-columns: 110px 1fr; gap: 6px 12px; font-size: .9rem }
+.day b { font-weight: 600 }
+.toast { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 8px 14px; border-radius: 8px; font-size: .85rem; opacity: 0; transition: opacity .2s; pointer-events: none }
+.toast.show { opacity: 1 }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <div class="brand"><h1>Switch Ready</h1><span class="sub">24 weeks, about an hour a day</span></div>
+      <div class="spacer"></div>
+      <div class="meter"><span class="mono" id="pct">0%</span><div class="track"><div class="fill" id="pctFill" style="width:0%"></div></div></div>
+      <div class="sync" id="sync"><i></i><span>Saved on this device</span></div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <a href="#overview">Overview</a><a href="#roadmap">Roadmap</a><a href="#dsa">DSA</a><a href="#design">System design</a>
+      <a href="#skills">Skills</a><a href="#videos">Videos</a><a href="#certs">Certifications</a><a href="#projects">Projects</a><a href="#interview">Interview</a><a href="#resume">Resume &amp; LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ---------- CONTENT ----------
+const R = (label, url, kind) => ({ label, url, kind });
+
+const WEEKS = [
+  { n: 1, theme: "Quick wins: resume, LinkedIn and the DSA habit", phase: "Be ready now",
+    why: "If a good opening comes up next month, your profile should already be ready. These fixes take a few hours and pay off immediately.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day from Arrays & Hashing (30 min cap; read the solution if stuck)",
+      "Weekdays: Java basics refresh: String immutability, equals/hashCode, wrappers, static/final",
+      "Weekend: apply the first 5 fixes in the Resume tab",
+      "Weekend: update LinkedIn headline and About; set Open to Work for recruiters only",
+      "Set up a GitHub repo called dsa-java and push every solution there" ],
+    res: [ R("NeetCode roadmap + video solutions", "https://neetcode.io/roadmap", "video"),
+      R("Striver A2Z DSA sheet", "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2", "practice"),
+      R("Tech Interview Handbook: resume", "https://www.techinterviewhandbook.org/resume/", "doc") ] },
+  { n: 2, theme: "Collections and OOP", phase: "Foundations",
+    why: "HashMap internals and OOP design come up in nearly every first technical round.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Arrays & Hashing)",
+      "Weekdays: ArrayList vs LinkedList, HashMap internals, ConcurrentHashMap",
+      "Weekdays: OOP pillars and SOLID, each with your own example",
+      "Weekend: finish the remaining Resume-tab fixes and Naukri profile" ],
+    res: [ R("Java Brains (YouTube)", "https://www.youtube.com/@Java.Brains", "video"),
+      R("Baeldung: Java Collections", "https://www.baeldung.com/java-collections", "doc"),
+      R("roadmap.sh: Java", "https://roadmap.sh/java", "doc") ] },
+  { n: 3, theme: "Streams, exceptions and SQL", phase: "Foundations",
+    why: "SQL is tested in most backend loops, and banks especially like window-function questions.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (finish Arrays & Hashing, start Two Pointers)",
+      "Weekdays: Streams, lambdas, Optional; checked vs unchecked exceptions",
+      "Weekend: SQL joins, GROUP BY/HAVING, window functions; 8 problems from LeetCode SQL 50" ],
+    res: [ R("LeetCode Top SQL 50", "https://leetcode.com/studyplan/top-sql-50/", "practice"),
+      R("techTFQ: SQL window functions", "https://www.youtube.com/results?search_query=techTFQ+SQL+window+functions", "video"),
+      R("SQLBolt", "https://sqlbolt.com/", "practice") ] },
+  { n: 4, theme: "Concurrency and the JVM", phase: "Foundations",
+    why: "Threads and JVM memory questions separate 2-year candidates from freshers.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Two Pointers, then Sliding Window)",
+      "Weekdays: threads, ExecutorService, CompletableFuture, synchronized vs Lock, volatile",
+      "Weekend: JVM memory, GC basics; indexes and EXPLAIN in SQL; 7 more SQL 50 problems" ],
+    res: [ R("Jenkov: Java Concurrency", "https://jenkov.com/tutorials/java-concurrency/index.html", "doc"),
+      R("Defog Tech (YouTube)", "https://www.youtube.com/@DefogTech", "video"),
+      R("Use The Index, Luke", "https://use-the-index-luke.com/", "doc") ] },
+  { n: 5, theme: "Spring Boot fundamentals", phase: "Spring backend",
+    why: "This is the job itself. Interviewers will probe how Spring works, not just that you've used it.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Sliding Window, then Stack)",
+      "Weekdays: IoC/DI, bean scopes and lifecycle, profiles, auto-configuration",
+      "Weekend: build a small CRUD API with validation and @ControllerAdvice error handling" ],
+    res: [ R("Spring Boot reference", "https://docs.spring.io/spring-boot/index.html", "doc"),
+      R("Amigoscode: Spring Boot full course", "https://www.youtube.com/results?search_query=Amigoscode+Spring+Boot+full+course", "video"),
+      R("Spring guides", "https://spring.io/guides", "doc") ] },
+  { n: 6, theme: "JPA, Hibernate and transactions", phase: "Spring backend",
+    why: "N+1 queries and @Transactional behaviour are classic interview questions and real production bugs.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Stack, then Binary Search)",
+      "Weekdays: entities, relationships, fetch types, the N+1 problem",
+      "Weekdays: @Transactional propagation, isolation, why self-invocation skips it",
+      "Weekend: Relay: create the repo, README problem statement, architecture sketch" ],
+    res: [ R("Vlad Mihalcea (JPA performance)", "https://vladmihalcea.com/tutorials/hibernate/", "doc"),
+      R("Spring Data JPA docs", "https://docs.spring.io/spring-data/jpa/reference/", "doc") ] },
+  { n: 7, theme: "PostgreSQL and the first Relay endpoint", phase: "Spring backend",
+    why: "A second database and a real project repo both show up on your resume from here.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Binary Search, then Linked List)",
+      "Weekdays: PostgreSQL basics vs MySQL, Flyway migrations",
+      "Weekend: Relay: POST /notifications with validation, PostgreSQL schema, status lifecycle" ],
+    res: [ R("PostgreSQL tutorial", "https://www.postgresqltutorial.com/", "doc"),
+      R("Flyway docs", "https://documentation.red-gate.com/flyway", "doc") ] },
+  { n: 8, theme: "Testing", phase: "Spring backend",
+    why: "Tests are the first thing a reviewer checks in your GitHub. No tests reads as junior.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Linked List)",
+      "Weekdays: JUnit 5 + Mockito for the service layer",
+      "Weekend: integration tests with MockMvc and Testcontainers for Relay" ],
+    res: [ R("JUnit 5 user guide", "https://junit.org/junit5/docs/current/user-guide/", "doc"),
+      R("Testcontainers", "https://testcontainers.com/", "doc"),
+      R("Mockito", "https://site.mockito.org/", "doc") ] },
+  { n: 9, theme: "Spring Security and JWT", phase: "Spring backend",
+    why: "Auth questions appear in every backend loop, and your Velox security work makes this a natural story.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (start Trees)",
+      "Weekdays: security filter chain, stateless JWT, roles; OAuth2 concepts",
+      "Weekend: add JWT auth and per-tenant API keys to Relay" ],
+    res: [ R("Spring Security reference", "https://docs.spring.io/spring-security/reference/", "doc"),
+      R("Dan Vega: Spring Security JWT", "https://www.youtube.com/results?search_query=Dan+Vega+Spring+Security+JWT", "video") ] },
+  { n: 10, theme: "Docker", phase: "DevOps",
+    why: "Docker is a baseline expectation, and it lets any reviewer run your project with one command.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Trees)",
+      "Weekdays: images vs containers, layers, multi-stage builds",
+      "Weekend: Docker Compose for Relay + PostgreSQL; `docker compose up` starts everything" ],
+    res: [ R("TechWorld with Nana: Docker", "https://www.youtube.com/results?search_query=TechWorld+with+Nana+Docker+tutorial+for+beginners", "video"),
+      R("Docker: Get started", "https://docs.docker.com/get-started/", "doc") ] },
+  { n: 11, theme: "Redis and caching", phase: "Backend depth",
+    why: "Caching is the most-used building block in system design rounds.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (finish Trees, Tries)",
+      "Weekdays: Redis data types, TTL, cache-aside, eviction",
+      "Weekend: per-tenant rate limiting in Relay with a Redis token bucket" ],
+    res: [ R("Redis University (free)", "https://university.redis.io/", "video"),
+      R("Redis docs", "https://redis.io/docs/latest/", "doc") ] },
+  { n: 12, theme: "Kafka", phase: "Backend depth",
+    why: "Event streaming fits your SMPP/RCS background and is a strong differentiator.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Heap / Priority Queue)",
+      "Weekdays: topics, partitions, consumer groups, ordering, DLQ",
+      "Weekend: Relay publishes events to Kafka; one channel worker consumes them" ],
+    res: [ R("Confluent: Kafka 101", "https://developer.confluent.io/courses/", "video"),
+      R("Spring for Apache Kafka", "https://docs.spring.io/spring-kafka/reference/", "doc") ] },
+  { n: 13, theme: "Microservices patterns", phase: "Backend depth",
+    why: "This is what HLD rounds probe at 2–3 years: retries, idempotency and failure handling.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Backtracking)",
+      "Weekdays: circuit breaker, retry, idempotency keys, outbox pattern",
+      "Weekend: Relay: retries with backoff, dead-letter topic, delivery status API",
+      "Checkpoint: one timed 60-min session, 2 medium problems, no hints" ],
+    res: [ R("microservices.io patterns", "https://microservices.io/patterns/", "doc"),
+      R("Resilience4j docs", "https://resilience4j.readme.io/docs", "doc") ] },
+  { n: 14, theme: "CI/CD with GitHub Actions", phase: "DevOps",
+    why: "Owning a pipeline is concrete proof of DevOps skills on your resume.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Graphs: BFS/DFS)",
+      "Weekdays: GitHub Actions workflows, jobs, caching, secrets",
+      "Weekend: CI for Relay: build, test with Testcontainers, build the Docker image" ],
+    res: [ R("GitHub Actions docs", "https://docs.github.com/en/actions", "doc"),
+      R("TechWorld with Nana: GitHub Actions", "https://www.youtube.com/results?search_query=TechWorld+with+Nana+GitHub+Actions", "video") ] },
+  { n: 15, theme: "AWS core", phase: "Cloud",
+    why: "Start AWS Solutions Architect Associate prep here; it's the one certification worth paying for.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Graphs: topological sort)",
+      "Weekdays: IAM, EC2, S3, VPC basics (SAA course, 30 min/day)",
+      "Weekend: free-tier account with billing alerts and MFA; launch an EC2 instance" ],
+    res: [ R("freeCodeCamp: AWS SAA course", "https://www.youtube.com/results?search_query=freeCodeCamp+AWS+Solutions+Architect+Associate+SAA-C03", "video"),
+      R("AWS Skill Builder", "https://skillbuilder.aws/", "video"),
+      R("AWS Free Tier", "https://aws.amazon.com/free/", "doc") ] },
+  { n: 16, theme: "Deploy Relay to AWS", phase: "Cloud",
+    why: "A live URL on your resume is worth more than ten repos nobody can run.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Advanced Graphs)",
+      "Weekdays: RDS, load balancers, SQS/SNS, CloudWatch (SAA course)",
+      "Weekend: deploy Relay to EC2 with Docker Compose + RDS; stop it when idle" ],
+    res: [ R("Be A Better Dev (AWS)", "https://www.youtube.com/@BeABetterDev", "video"),
+      R("AWS Well-Architected", "https://aws.amazon.com/architecture/well-architected/", "doc") ] },
+  { n: 17, theme: "Observability and Relay polish", phase: "DevOps",
+    why: "Numbers in your README (throughput, p95 latency) turn a project into an interview story.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (1-D DP)",
+      "Weekdays: Actuator, Micrometer, Prometheus and Grafana basics; SAA course",
+      "Weekend: a k6 load test on Relay; put the results and a design-decisions section in the README" ],
+    res: [ R("Prometheus docs", "https://prometheus.io/docs/introduction/overview/", "doc"),
+      R("Grafana tutorials", "https://grafana.com/tutorials/", "doc"),
+      R("k6 docs", "https://grafana.com/docs/k6/latest/", "doc") ] },
+  { n: 18, theme: "LLMs and prompt engineering", phase: "AI",
+    why: "Most 2026 backend JDs mention GenAI. You already use AI tools; now build with them.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (1-D DP)",
+      "Weekdays: tokens, context, temperature; prompting and structured JSON output",
+      "Weekend: call an LLM from Spring AI; return structured output" ],
+    res: [ R("Andrej Karpathy: Intro to LLMs", "https://www.youtube.com/results?search_query=Andrej+Karpathy+intro+to+large+language+models", "video"),
+      R("Spring AI reference", "https://docs.spring.io/spring-ai/reference/", "doc"),
+      R("Anthropic courses", "https://github.com/anthropics/courses", "practice") ] },
+  { n: 19, theme: "RAG with DocAsk", phase: "AI",
+    why: "RAG is the most common GenAI pattern in real products.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (2-D DP)",
+      "Weekdays: embeddings, chunking, pgvector, retrieval",
+      "Weekend: DocAsk: ingest docs and answer with citations" ],
+    res: [ R("pgvector", "https://github.com/pgvector/pgvector", "doc"),
+      R("DeepLearning.AI short courses", "https://www.deeplearning.ai/short-courses/", "video"),
+      R("Dan Vega: Spring AI", "https://www.youtube.com/results?search_query=Dan+Vega+Spring+AI", "video") ] },
+  { n: 20, theme: "Tool calling and ML basics", phase: "AI",
+    why: "Tool calling connects AI to real backends, and a little ML vocabulary helps in conversations.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (2-D DP)",
+      "Weekdays: tool calling, agents, MCP; ML basics (3Blue1Brown series)",
+      "Weekend: DocAsk calls Relay's status API; add a 20-question evaluation set" ],
+    res: [ R("Model Context Protocol", "https://modelcontextprotocol.io/", "doc"),
+      R("3Blue1Brown: Neural networks", "https://www.youtube.com/results?search_query=3Blue1Brown+neural+networks", "video") ] },
+  { n: 21, theme: "High-level system design", phase: "Interview",
+    why: "Expect one HLD round at most MNCs. Practise out loud with a timer.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Greedy, Intervals)",
+      "Weekdays: HLD building blocks (System Design tab), one ByteByteGo video a day",
+      "Weekend: 2 HLD problems on paper, 45 min each: URL shortener, notification system" ],
+    res: [ R("ByteByteGo (YouTube)", "https://www.youtube.com/@ByteByteGo", "video"),
+      R("Hello Interview: system design", "https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction", "doc"),
+      R("System Design Primer", "https://github.com/donnemartin/system-design-primer", "doc") ] },
+  { n: 22, theme: "Low-level design and security", phase: "Interview",
+    why: "LLD is a dedicated round at many product companies; OWASP basics come up in backend loops.",
+    tasks: [
+      "Weekdays: 1 DSA problem a day (Bit Manipulation & Math)",
+      "Weekdays: 6 design patterns + OWASP Top 10",
+      "Weekend: code 2 LLD problems in Java: parking lot, LRU cache" ],
+    res: [ R("Refactoring.Guru: Design patterns", "https://refactoring.guru/design-patterns", "doc"),
+      R("Concept && Coding: LLD", "https://www.youtube.com/results?search_query=Concept+and+Coding+low+level+design", "video"),
+      R("OWASP Top 10", "https://owasp.org/www-project-top-ten/", "doc") ] },
+  { n: 23, theme: "Interview stories and applications", phase: "Interview",
+    why: "Your materials go out now, so the recruiter calls find you ready.",
+    tasks: [
+      "Weekdays: revise 1 problem you got wrong earlier, each day",
+      "Weekdays: write and rehearse your 6 STAR stories (Interview tab)",
+      "Weekend: add Relay and DocAsk to resume and LinkedIn; apply to 10 roles, ask 5 people for referrals",
+      "Book the AWS SAA exam" ],
+    res: [ R("Amazon Leadership Principles", "https://www.amazon.jobs/content/en/our-workplace/leadership-principles", "doc"),
+      R("Gate Smashers (OS/DBMS/CN)", "https://www.youtube.com/@GateSmashers", "video") ] },
+  { n: 24, theme: "Mocks and revision", phase: "Interview",
+    why: "Mock interviews convert knowledge into performance.",
+    tasks: [
+      "Weekdays: Java/Spring question bank, 6 questions a day out loud",
+      "Weekend: 2 mock interviews (1 DSA, 1 system design)",
+      "Keep applying and following up on referrals",
+      "Take the AWS SAA exam" ],
+    res: [ R("Tech Interview Handbook", "https://www.techinterviewhandbook.org/", "doc"),
+      R("Exponent peer mocks", "https://www.tryexponent.com/practice", "practice") ] },
+];
+
+// DSA: "slug:D" (E/M/H). Titles derived from slug unless overridden.
+const DSA = {
+  "Arrays & Hashing": "contains-duplicate:E two-sum:E valid-anagram:E group-anagrams:M top-k-frequent-elements:M product-of-array-except-self:M valid-sudoku:M longest-consecutive-sequence:M majority-element:E sort-colors:M next-permutation:M maximum-subarray:M subarray-sum-equals-k:M set-matrix-zeroes:M spiral-matrix:M rotate-image:M",
+  "Two Pointers": "valid-palindrome:E two-sum-ii-input-array-is-sorted:M 3sum:M container-with-most-water:M trapping-rain-water:H remove-duplicates-from-sorted-array:E move-zeroes:E",
+  "Sliding Window": "best-time-to-buy-and-sell-stock:E longest-substring-without-repeating-characters:M longest-repeating-character-replacement:M permutation-in-string:M max-consecutive-ones-iii:M minimum-window-substring:H sliding-window-maximum:H",
+  "Stack": "valid-parentheses:E min-stack:M evaluate-reverse-polish-notation:M generate-parentheses:M daily-temperatures:M next-greater-element-i:E car-fleet:M largest-rectangle-in-histogram:H",
+  "Binary Search": "binary-search:E search-a-2d-matrix:M koko-eating-bananas:M find-first-and-last-position-of-element-in-sorted-array:M find-minimum-in-rotated-sorted-array:M search-in-rotated-sorted-array:M time-based-key-value-store:M median-of-two-sorted-arrays:H",
+  "Linked List": "reverse-linked-list:E merge-two-sorted-lists:E linked-list-cycle:E middle-of-the-linked-list:E reorder-list:M remove-nth-node-from-end-of-list:M copy-list-with-random-pointer:M add-two-numbers:M find-the-duplicate-number:M lru-cache:M merge-k-sorted-lists:H reverse-nodes-in-k-group:H",
+  "Trees": "invert-binary-tree:E maximum-depth-of-binary-tree:E diameter-of-binary-tree:E balanced-binary-tree:E same-tree:E subtree-of-another-tree:E lowest-common-ancestor-of-a-binary-search-tree:M binary-tree-level-order-traversal:M binary-tree-zigzag-level-order-traversal:M binary-tree-right-side-view:M count-good-nodes-in-binary-tree:M validate-binary-search-tree:M kth-smallest-element-in-a-bst:M lowest-common-ancestor-of-a-binary-tree:M construct-binary-tree-from-preorder-and-inorder-traversal:M binary-tree-maximum-path-sum:H serialize-and-deserialize-binary-tree:H",
+  "Tries": "implement-trie-prefix-tree:M design-add-and-search-words-data-structure:M word-search-ii:H",
+  "Heap / Priority Queue": "kth-largest-element-in-a-stream:E last-stone-weight:E k-closest-points-to-origin:M kth-largest-element-in-an-array:M task-scheduler:M design-twitter:M find-median-from-data-stream:H",
+  "Backtracking": "subsets:M combination-sum:M permutations:M subsets-ii:M combination-sum-ii:M word-search:M palindrome-partitioning:M letter-combinations-of-a-phone-number:M n-queens:H",
+  "Graphs": "flood-fill:E number-of-islands:M max-area-of-island:M clone-graph:M rotting-oranges:M pacific-atlantic-water-flow:M surrounded-regions:M number-of-provinces:M is-graph-bipartite:M course-schedule:M course-schedule-ii:M redundant-connection:M word-ladder:H",
+  "Advanced Graphs": "network-delay-time:M path-with-minimum-effort:M min-cost-to-connect-all-points:M cheapest-flights-within-k-stops:M reconstruct-itinerary:H swim-in-rising-water:H",
+  "1-D Dynamic Programming": "climbing-stairs:E min-cost-climbing-stairs:E house-robber:M house-robber-ii:M longest-palindromic-substring:M palindromic-substrings:M decode-ways:M coin-change:M maximum-product-subarray:M word-break:M longest-increasing-subsequence:M partition-equal-subset-sum:M",
+  "2-D Dynamic Programming": "unique-paths:M minimum-path-sum:M longest-common-subsequence:M best-time-to-buy-and-sell-stock-with-cooldown:M coin-change-ii:M target-sum:M interleaving-string:M edit-distance:M distinct-subsequences:H burst-balloons:H",
+  "Greedy": "jump-game:M jump-game-ii:M gas-station:M hand-of-straights:M partition-labels:M valid-parenthesis-string:M merge-triplets-to-form-target-triplet:M",
+  "Intervals": "merge-intervals:M insert-interval:M non-overlapping-intervals:M minimum-number-of-arrows-to-burst-balloons:M interval-list-intersections:M",
+  "Bit Manipulation & Math": "single-number:E number-of-1-bits:E counting-bits:E reverse-bits:E missing-number:E happy-number:E plus-one:E powx-n:M reverse-integer:M sum-of-two-integers:M",
+};
+const TITLE_FIX = { "3sum": "3Sum", "powx-n": "Pow(x, n)", "lru-cache": "LRU Cache", "number-of-1-bits": "Number of 1 Bits",
+  "two-sum-ii-input-array-is-sorted": "Two Sum II", "kth-smallest-element-in-a-bst": "Kth Smallest Element in a BST",
+  "implement-trie-prefix-tree": "Implement Trie (Prefix Tree)", "max-consecutive-ones-iii": "Max Consecutive Ones III",
+  "house-robber-ii": "House Robber II", "coin-change-ii": "Coin Change II", "course-schedule-ii": "Course Schedule II",
+  "subsets-ii": "Subsets II", "combination-sum-ii": "Combination Sum II", "word-search-ii": "Word Search II",
+  "jump-game-ii": "Jump Game II", "next-greater-element-i": "Next Greater Element I", "search-a-2d-matrix": "Search a 2D Matrix",
+  "n-queens": "N-Queens" };
+const DSA_WHEN = { "Arrays & Hashing": "Wk 1–3", "Two Pointers": "Wk 3–4", "Sliding Window": "Wk 4–5", "Stack": "Wk 5–6", "Binary Search": "Wk 6–7",
+  "Linked List": "Wk 7–8", "Trees": "Wk 9–11", "Tries": "Wk 11", "Heap / Priority Queue": "Wk 12", "Backtracking": "Wk 13",
+  "Graphs": "Wk 14–15", "Advanced Graphs": "Wk 16", "1-D Dynamic Programming": "Wk 17–18", "2-D Dynamic Programming": "Wk 19–20",
+  "Greedy": "Wk 21", "Intervals": "Wk 21", "Bit Manipulation & Math": "Wk 22" };
+
+const HLD_BASICS = [
+  "Requirements first: functional vs non-functional, back-of-envelope estimates (QPS, storage)",
+  "Load balancers (L4 vs L7), horizontal vs vertical scaling, stateless services",
+  "Caching: cache-aside, write-through, eviction, CDN, cache invalidation problems",
+  "Databases: SQL vs NoSQL, indexes, replication, sharding, partition keys",
+  "CAP theorem, consistency models, quorum reads/writes",
+  "Message queues and streams: Kafka vs SQS/RabbitMQ, at-least-once, idempotent consumers",
+  "Consistent hashing",
+  "Rate limiting algorithms: token bucket, leaky bucket, sliding window",
+  "API design: REST conventions, pagination, versioning, idempotency keys, gRPC basics",
+  "Unique ID generation (Snowflake, UUID v7), blob storage, search (Elasticsearch basics)",
+];
+const HLD = [
+  ["URL shortener", "ID generation, base62, read-heavy caching, analytics pipeline"],
+  ["Rate limiter", "Token bucket in Redis, distributed counters, where to place it"],
+  ["Notification system", "Fan-out, channel workers, retries, DLQ, user preferences, provider failover. Your home turf: use your SMPP/RCS experience"],
+  ["Chat app (WhatsApp-like)", "WebSockets, presence, message ordering, delivery receipts, offline storage"],
+  ["News feed", "Fan-out on write vs read, ranking, celebrity problem"],
+  ["Typeahead / autocomplete", "Trie vs prefix index, top-k caching, update pipeline"],
+  ["Distributed cache", "Consistent hashing, replication, eviction, hot keys"],
+  ["Ticket booking (BookMyShow)", "Seat locking, concurrency, payment timeouts, idempotency"],
+  ["Payment system", "Ledger, double-entry, exactly-once illusions, reconciliation"],
+  ["Video streaming (YouTube)", "Upload pipeline, transcoding, CDN, adaptive bitrate"],
+  ["Ride hailing (Uber)", "Geo-indexing (geohash/quadtree), matching, location updates at scale"],
+  ["Web crawler", "URL frontier, politeness, dedup, distributed workers"],
+];
+const LLD_BASICS = [
+  "SOLID principles with a Java example each",
+  "Creational patterns: Singleton (thread-safe), Factory, Builder",
+  "Structural patterns: Adapter, Decorator, Proxy",
+  "Behavioural patterns: Strategy, Observer, State, Chain of Responsibility",
+  "UML class diagrams: drawing classes, relationships and multiplicity quickly",
+  "Concurrency in LLD: synchronized sections, thread-safe collections, locking a booking",
+];
+const LLD = [
+  ["Parking lot", "Classes, strategy for pricing, spot allocation"],
+  ["LRU cache", "HashMap + doubly linked list, thread safety"],
+  ["Elevator system", "State pattern, scheduling strategy"],
+  ["BookMyShow", "Seat locking, concurrency"],
+  ["Splitwise", "Balances, simplify debts"],
+  ["Logger / Rate limiter library", "Chain of responsibility, singleton, strategies"],
+  ["Vending machine", "State pattern"],
+  ["Tic-tac-toe / Snake & ladder", "Clean game loop, extensibility"],
+];
+
+const SKILLS = [
+  { key: "java", name: "Core Java", level: 3, items: [
+    "OOP, SOLID, immutability, records, sealed classes", "Collections internals (HashMap, ConcurrentHashMap, TreeMap)",
+    "Streams, lambdas, Optional", "Exceptions: checked vs unchecked, try-with-resources",
+    "Concurrency: executors, CompletableFuture, locks, virtual threads (Java 21)", "JVM memory, GC, profiling with JFR/VisualVM",
+    "Generics, wildcards, type erasure", "Java 17/21 features you can name and use" ] },
+  { key: "spring", name: "Spring ecosystem", level: 2, items: [
+    "IoC/DI, bean lifecycle, scopes, AOP basics", "REST controllers, validation, error handling, pagination",
+    "Spring Data JPA, transactions, N+1", "Spring Security, JWT, OAuth2 resource server",
+    "Testing: JUnit 5, Mockito, MockMvc, Testcontainers", "Actuator, Micrometer metrics", "Spring Cloud: gateway, config, Resilience4j",
+    "Spring for Kafka, Spring Cache with Redis" ] },
+  { key: "data", name: "Databases & messaging", level: 3, items: [
+    "SQL joins, window functions, CTEs", "Indexes, EXPLAIN plans, query tuning", "Transactions, isolation levels, locking",
+    "PostgreSQL (JSONB, partial indexes)", "Normalisation vs denormalisation", "Redis data types, caching patterns, TTLs",
+    "Kafka partitions, consumer groups, ordering, DLQ", "MongoDB basics (document modelling)" ] },
+  { key: "devops", name: "DevOps", level: 2, items: [
+    "Linux, shell scripting, systemd, networking commands", "Git workflows, PR reviews, trunk-based development",
+    "Docker images, multi-stage builds, Compose", "GitHub Actions CI/CD pipelines", "Kubernetes: pods, deployments, services, ingress, probes",
+    "Nginx as reverse proxy", "Terraform basics", "Prometheus, Grafana, centralised logging" ] },
+  { key: "cloud", name: "Cloud (AWS)", level: 1, items: [
+    "IAM: roles, policies, least privilege", "EC2, Auto Scaling, ALB", "S3, CloudFront", "VPC, subnets, security groups, NAT",
+    "RDS, DynamoDB basics", "ECS Fargate / EKS concepts", "SQS, SNS, Lambda, API Gateway", "CloudWatch, cost control, Well-Architected pillars",
+    "AWS Solutions Architect Associate certification" ] },
+  { key: "ai", name: "AI engineering", level: 1, items: [
+    "How LLMs work at a high level: tokens, context, sampling", "Prompt engineering and structured output", "Calling LLM APIs from Java (Spring AI) and Python",
+    "Embeddings, vector databases (pgvector), similarity search", "RAG: chunking, retrieval, citations, evaluation", "Tool calling, agents, MCP",
+    "LLM safety: prompt injection, PII, guardrails", "ML basics: regression, classification, overfitting, metrics", "Using AI coding tools responsibly (you already do this well)" ] },
+  { key: "sec", name: "Security", level: 2, items: [
+    "OWASP Top 10 and API Top 10", "AuthN vs AuthZ, JWT pitfalls, OAuth2 flows", "SQL injection, XSS, CSRF and their fixes",
+    "Secrets management (env, AWS Secrets Manager)", "TLS/HTTPS basics, secure headers, CORS" ] },
+  { key: "cs", name: "Core CS", level: 2, items: [
+    "OS: processes vs threads, scheduling, deadlock, paging, virtual memory", "DBMS: ACID, normalisation, indexing (B+ tree)",
+    "Networks: OSI/TCP-IP, TCP vs UDP, HTTP/1.1 vs 2 vs 3, TLS handshake, DNS", "What happens when you type a URL", "Big-O analysis of your own code" ] },
+];
+
+const PROJECTS = [
+  { key: "p1", name: "Relay", tag: "Flagship · weeks 6–17 (weekends)",
+    pitch: "A multi-tenant notification platform: one API that sends SMS, email and webhook notifications with retries, rate limits and delivery tracking. It turns your SMPP/RCS/WhatsApp experience into a public, deployed system.",
+    stack: ["Java 21", "Spring Boot", "PostgreSQL", "Kafka", "Redis", "Docker", "GitHub Actions", "AWS ECS + RDS", "Prometheus/Grafana"],
+    proves: "Microservices, event-driven design, reliability patterns, cloud deployment, testing, observability.",
+    milestones: [
+      "README: problem, architecture diagram, how to run (`docker compose up`)",
+      "notification-api: POST /notifications with JWT auth, validation, idempotency key",
+      "PostgreSQL schema + Flyway; status lifecycle QUEUED → SENT → DELIVERED / FAILED",
+      "Publish events to Kafka; one worker per channel (email via SMTP mock, SMS via SMPP simulator, webhook)",
+      "Retries with exponential backoff and a dead-letter topic",
+      "Per-tenant rate limiting in Redis (token bucket)",
+      "Unit + integration tests with Testcontainers; CI on every PR",
+      "Metrics: sent/failed per channel, latency p95 in Grafana",
+      "Load test with k6; put the numbers (e.g. sustained N msgs/sec) in the README",
+      "Deploy to AWS: EC2 + Docker Compose + RDS to start (ECS later if time allows)",
+      "Write a short design doc: trade-offs you made and what you'd do at 100× scale" ] },
+  { key: "p2", name: "DocAsk", tag: "AI · weeks 18–20 (weekends)",
+    pitch: "An AI support assistant that answers questions from a set of product docs with citations, and can call a tool to look up a notification's status in Relay.",
+    stack: ["Spring AI", "pgvector", "PostgreSQL", "Angular (reuse your SPA skills)", "Docker", "AWS"],
+    proves: "Practical GenAI: RAG, tool calling, evaluation and safety, integrated with a real backend.",
+    milestones: [
+      "Ingest pipeline: upload Markdown/PDF, chunk, embed, store in pgvector",
+      "Chat endpoint: retrieve top-k chunks, answer with source citations",
+      "Tool calling: 'what happened to notification X?' calls Relay's status API",
+      "Evaluation set: 30 questions with expected answers; report accuracy in README",
+      "Guardrails: refuse out-of-scope questions, strip PII, defend against prompt injection in docs",
+      "Optional: simple Angular chat UI with streaming responses",
+      "Deploy and record a 2-minute demo video for the README and LinkedIn" ] },
+  { key: "p3", name: "Snip", tag: "Optional · after week 24, or skip",
+    pitch: "A URL shortener with a built-in rate limiter. Small to build, but it gives you a concrete answer to the two most-asked HLD questions.",
+    stack: ["Spring Boot", "Redis", "PostgreSQL", "k6"],
+    proves: "Caching, ID generation, rate limiting, and measuring performance.",
+    milestones: [
+      "Base62 short codes from a Snowflake-style ID generator",
+      "Redis cache-aside for redirects; measure hit ratio",
+      "Token-bucket rate limiter as a reusable Spring filter",
+      "Click analytics with async counting",
+      "k6 load test: p95 latency before and after caching, written up in the README" ] },
+];
+
+const JAVA_QS = [
+  "How does HashMap work internally? What changed in Java 8?", "Difference between HashMap, Hashtable, ConcurrentHashMap",
+  "Why must equals and hashCode be overridden together?", "String vs StringBuilder vs StringBuffer; the string pool",
+  "Checked vs unchecked exceptions; when to create custom ones", "What is a functional interface? Explain Stream laziness",
+  "volatile vs synchronized vs AtomicInteger", "How does a thread pool work? What happens when the queue is full?",
+  "Explain JVM memory areas and how G1 GC works at a high level", "What are virtual threads and when would you use them?",
+  "Spring: how does dependency injection work? Constructor vs field injection", "Bean scopes and lifecycle; @PostConstruct",
+  "How does @Transactional work (proxies)? Why doesn't self-invocation work?", "Propagation REQUIRED vs REQUIRES_NEW",
+  "What is the N+1 problem and how do you fix it?", "Lazy vs eager loading; LazyInitializationException",
+  "How does Spring Boot auto-configuration work?", "How do you handle exceptions globally in a REST API?",
+  "How does stateless JWT auth work in Spring Security? Where can it go wrong?", "Difference between @Controller and @RestController; @RequestParam vs @PathVariable",
+  "How would you make an API idempotent?", "How do you version a REST API?", "Explain circuit breaker and retry; when not to retry",
+  "Kafka: how is ordering guaranteed? What happens on consumer rebalance?", "How do you design for at-least-once delivery without duplicates?",
+  "SQL: write a query for the 2nd highest salary per department", "Clustered vs non-clustered index; when does an index not help?",
+  "Isolation levels and the anomalies each prevents", "How do you debug a slow API in production?", "Walk me through your CI/CD pipeline",
+];
+
+const STAR = [
+  { title: "Owning backend reliability", src: "SMPP 2.0 platform (MDS)", q: "Tell me about a technical decision you owned.",
+    s: "Commercial SMPP platform handling high-volume telecom messaging for paying clients; any downtime meant lost messages.",
+    t: "Redesign the backend: schema, authentication and fault tolerance.",
+    a: "Chose where Django ORM stops and direct MySQL starts for hot paths; designed failure handling so one faulty component could not stop the platform.",
+    r: "Add your real numbers: throughput, latency or uptime before vs after." },
+  { title: "Building from zero", src: "WhatsApp Business API SPA (MDS)", q: "Tell me about something you built end to end.",
+    s: "Business needed customers to message on WhatsApp from their own UI with delivery tracking.",
+    t: "Design and build the full SPA, frontend and backend.",
+    a: "Angular client, Node/Express REST backend, integrated the official WhatsApp Business API; kept UI state in sync with async delivery events.",
+    r: "Shipped to production; add client count or messages per day." },
+  { title: "Performance at scale", src: "Omnichannel APIs (MDS)", q: "Tell me about a time you improved performance.",
+    s: "20+ endpoints across SMS, RCS, IVR and email in a Laravel codebase serving active clients.",
+    t: "Reduce slow queries without breaking existing clients.",
+    a: "Profiled queries, added indexes, rewrote heavy joins, standardised validation layers.",
+    r: "Add the measured improvement (e.g. p95 from X ms to Y ms)." },
+  { title: "Learning fast in an unfamiliar domain", src: "Android MDM (Velox)", q: "Tell me about a time you had to learn quickly.",
+    s: "Joined Velox and was put on an existing Java MDM codebase for enterprise Android devices.",
+    t: "Become productive on device policies and restrictions quickly.",
+    a: "Used AI tools to map the codebase and APIs, then verified every change against source and tests myself.",
+    r: "Delivered features within N weeks of joining; describe one." },
+  { title: "Incident handling", src: "Quality Kiosk", q: "Tell me about a production incident.",
+    s: "Monitored application and infrastructure alerts with P1/P2 incident reporting.",
+    t: "Reduce time to resolution.",
+    a: "Improved triage and escalation, coordinated across teams.",
+    r: "40% reduction in average resolution time." },
+  { title: "Disagreement or pressure", src: "Pick a real one from MDS or Velox", q: "Tell me about a conflict or a tight deadline.",
+    s: "Describe the situation honestly.", t: "What was at stake for you?", a: "What you said and did; how you used data.", r: "Outcome and what you'd do differently." },
+];
+
+const RESUME_FIXES = [
+  ["Summary", "Lead with your target role and drop \"etc.\": \"Backend engineer (2 yrs) building Java/Spring Boot and Python services: REST APIs, MySQL/PostgreSQL, messaging platforms (SMPP, RCS, WhatsApp) and Linux deployments.\""],
+  ["Current role bullets", "Add scope and numbers: how many APIs, devices or alerts, response times, users. Use [X] placeholders now and fill them from work data."],
+  ["Skills section", "Group as: Languages (Java, Python, SQL, JavaScript) · Backend (Spring Boot, Django, FastAPI, Node.js) · Data (MySQL, PostgreSQL, MSSQL, Redis, Kafka) · Cloud/DevOps (AWS, Docker, GitHub Actions, Linux) · AI (Spring AI, RAG). Add each only once you've used it in a project."],
+  ["Non-engineering roles", "Collapse into one line under the career-break entry, or drop. Keep the resume to one page."],
+  ["Career break", "One line: \"2018–2023: Career break, UPSC CSE preparation; cleared UGC NET; completed Java Full Stack course.\" Then move on."],
+  ["Projects section", "Add a Projects section with Relay, DocAsk and Snip once built: one line each with stack, a metric and a live link."],
+  ["Tools you use daily", "You use them at Velox; list them."],
+  ["Certifications", "Add AWS Solutions Architect Associate once passed."],
+  ["Education", "Add years; ATS filters and recruiters look for them."],
+];
+const VELOX_BULLETS = [
+  "Built [N] REST APIs in Spring Boot (Controller–Service–DAO) for a network monitoring platform covering [N] devices / AWS EC2 instances, alerts and dashboards.",
+  "Developed backend services for a dark-web monitoring product that detects exposed organisational credentials and routes findings to alerts within [X] minutes.",
+  "Extending a Java-based Android MDM solution: device policies and restrictions for [N] enterprise devices; ramped up on the unfamiliar codebase in [N] weeks.",
+];
+const LINKEDIN = [
+  "Headline: \"Backend Engineer · Java, Spring Boot, Python · Messaging platforms, APIs, AWS\"",
+  "About: 4 short lines covering what you build, the stack, one result and what you're looking for",
+  "Featured: Relay and DocAsk repos, demo video, AWS certificate",
+  "Experience: copy the improved resume bullets",
+  "Skills: pin Java, Spring Boot and System Design; get 3 colleagues to endorse",
+  "Open to Work: set to recruiters only, with titles: Software Engineer, Backend Engineer, SDE",
+  "Post once a week about what you built or learned (projects make good posts)",
+  "Naukri: refresh the profile every few days, match keywords to target JDs, set notice period accurately",
+  "Connect with 5 recruiters or engineers per week at target companies; ask for referrals with your resume and a 2-line pitch",
+];
+const COMPANIES = [
+  ["Product MNCs", "Amazon, Microsoft, Google, Atlassian, Adobe, Salesforce, Oracle, SAP Labs, Cisco, Intuit"],
+  ["Banking & fintech GCCs (strong in Mumbai/Pune)", "JPMorgan Chase, Morgan Stanley, Goldman Sachs, Barclays, Deutsche Bank, Citi, UBS, HSBC, Mastercard, Visa, American Express"],
+  ["Retail & enterprise GCCs", "Walmart Global Tech, Target, Lowe's, Wells Fargo, Fidelity, Nielsen"],
+  ["Messaging & CPaaS (uses your domain)", "Twilio, Sinch, Infobip, Route Mobile, Gupshup, Tanla"],
+  ["Security (uses your Velox work)", "Palo Alto Networks, Zscaler, CrowdStrike, Qualys, Check Point"],
+];
+const LOOP = [
+  ["Online assessment", "2–3 DSA problems in 60–90 min (HackerRank/Codility)"],
+  ["DSA round(s)", "1–2 rounds, medium problems, explain approach and complexity"],
+  ["LLD / machine coding", "Design and code classes in 60–90 min"],
+  ["HLD", "One system, 45–60 min (more common at 3+ yrs, but prepare anyway)"],
+  ["Java/Spring + project deep dive", "Your resume projects, questioned line by line"],
+  ["Hiring manager + HR", "Behavioural stories, motivation, notice period, compensation"],
+];
+
+// Video courses: YouTube search links point at the named channel's full course, so they stay valid if a video is re-uploaded.
+const yt = q => "https://www.youtube.com/results?search_query=" + encodeURIComponent(q);
+const VIDEOS = [
+  { topic: "Java & DSA", items: [
+    ["Java full course for beginners to advanced", "Telusko", yt("Telusko Java full course"), "Refresh core Java fast"],
+    ["Java multithreading & concurrency", "Defog Tech", "https://www.youtube.com/@DefogTech", "Short, deep videos on concurrency and JVM"],
+    ["Strivers A2Z DSA course (playlists by topic)", "take U forward", "https://www.youtube.com/@takeUforward", "Pattern-first, in Hinglish/English"],
+    ["NeetCode 150 explanations", "NeetCode", "https://www.youtube.com/@NeetCode", "Best for watching one problem at a time"],
+    ["Data structures easy to advanced", "freeCodeCamp", yt("freeCodeCamp data structures easy to advanced course"), "One long course if you prefer start-to-finish"] ] },
+  { topic: "Spring Boot & microservices", items: [
+    ["Spring Boot full course", "Amigoscode", yt("Amigoscode Spring Boot full course"), "Practical, project-based"],
+    ["Spring Boot microservices full course", "Programming Techie", yt("Programming Techie Spring Boot microservices full course"), "Gateway, discovery, Kafka, Resilience4j"],
+    ["Spring Security & JWT", "Dan Vega", yt("Dan Vega Spring Security JWT"), "Modern Spring Security 6 approach"],
+    ["Spring Boot & Hibernate deep dives", "Java Brains", "https://www.youtube.com/@Java.Brains", "Clear concept explanations"],
+    ["Spring Boot testing with Testcontainers", "Spring I/O / Java", yt("Spring Boot Testcontainers integration testing"), "For week 5"] ] },
+  { topic: "Databases, Redis & Kafka", items: [
+    ["PostgreSQL full course", "freeCodeCamp", yt("freeCodeCamp PostgreSQL full course"), ""],
+    ["SQL window functions", "techTFQ", yt("techTFQ SQL window functions"), "Interview-style SQL"],
+    ["Redis crash course", "Traversy Media / Redis", yt("Redis crash course"), ""],
+    ["Apache Kafka for beginners", "Confluent", yt("Confluent Apache Kafka 101"), "Official, concise"] ] },
+  { topic: "DevOps", items: [
+    ["Docker tutorial for beginners", "TechWorld with Nana", yt("TechWorld with Nana Docker tutorial for beginners full course"), ""],
+    ["Kubernetes tutorial for beginners", "TechWorld with Nana", yt("TechWorld with Nana Kubernetes tutorial for beginners"), ""],
+    ["GitHub Actions tutorial", "TechWorld with Nana", yt("TechWorld with Nana GitHub Actions tutorial"), ""],
+    ["Terraform course", "freeCodeCamp", yt("freeCodeCamp Terraform course HashiCorp Terraform Associate"), "Also preps the Terraform Associate exam"],
+    ["DevOps zero to hero", "Abhishek Veeramalla", yt("Abhishek Veeramalla DevOps zero to hero"), "Indian creator, interview-focused"] ] },
+  { topic: "AWS", items: [
+    ["AWS Cloud Practitioner full course", "freeCodeCamp (Andrew Brown)", yt("freeCodeCamp AWS Certified Cloud Practitioner"), ""],
+    ["AWS Solutions Architect Associate full course", "freeCodeCamp (Andrew Brown)", yt("freeCodeCamp AWS Solutions Architect Associate SAA-C03"), ""],
+    ["AWS concepts explained", "Be A Better Dev", "https://www.youtube.com/@BeABetterDev", "Short service-by-service videos"],
+    ["AWS Skill Builder (official, free tier)", "AWS", "https://skillbuilder.aws/", ""] ] },
+  { topic: "System design", items: [
+    ["System design fundamentals", "ByteByteGo", "https://www.youtube.com/@ByteByteGo", "Animated, 5–10 min each"],
+    ["System design playlist", "Gaurav Sen", yt("Gaurav Sen system design"), ""],
+    ["Low-level design playlist (Java)", "Concept && Coding", yt("Concept and Coding low level design"), "Parking lot, elevator, BookMyShow in Java"],
+    ["Mock system design interviews", "Hello Interview", yt("Hello Interview system design mock"), "Watch how strong candidates pace a round"] ] },
+  { topic: "AI engineering", items: [
+    ["Neural networks series", "3Blue1Brown", yt("3Blue1Brown neural networks"), "Intuition, no maths background needed"],
+    ["Intro to large language models", "Andrej Karpathy", yt("Andrej Karpathy intro to large language models"), "1 hour, high-level"],
+    ["Spring AI tutorials", "Dan Vega", yt("Dan Vega Spring AI"), "RAG and tool calling in Java"],
+    ["Building with Claude / prompt engineering", "Anthropic", "https://github.com/anthropics/courses", "Hands-on notebooks"],
+    ["ChatGPT prompt engineering for developers + RAG short courses", "DeepLearning.AI", "https://www.deeplearning.ai/short-courses/", "1–2 hr free courses"],
+    ["Machine Learning Specialization", "Andrew Ng (Coursera)", "https://www.coursera.org/specializations/machine-learning-introduction", "Audit for free"] ] },
+  { topic: "Core CS & interviews", items: [
+    ["Operating systems, DBMS, computer networks", "Gate Smashers", "https://www.youtube.com/@GateSmashers", "Revision in Hindi"],
+    ["Behavioural interview prep", "Jeff H Sipe / Exponent", yt("behavioral interview STAR method software engineer"), ""] ] },
+];
+
+const CERTS = [
+  { tier: "Do first", name: "AWS Certified Solutions Architect – Associate (SAA-C03)", by: "Amazon Web Services", cost: "about US$150", prep: "6–8 weeks alongside the roadmap", why: "The cloud cert Indian MNC recruiters filter on most. Directly backs your Relay deployment.", url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/" },
+  { tier: "Do first", name: "Oracle Certified Professional: Java SE 17 or 21 Developer", by: "Oracle", cost: "about US$245", prep: "4–6 weeks", why: "Proves deep Java knowledge; valued by banking GCCs and service MNCs. Optional if budget is tight.", url: "https://education.oracle.com/java-se-21-developer-professional/pexam_1Z0-830" },
+  { tier: "Strong add-on", name: "Certified Kubernetes Application Developer (CKAD)", by: "CNCF / Linux Foundation", cost: "about US$445 (often discounted)", prep: "4–6 weeks", why: "Hands-on exam; strong signal for cloud-native backend roles.", url: "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/" },
+  { tier: "Strong add-on", name: "HashiCorp Certified: Terraform Associate", by: "HashiCorp", cost: "about US$70", prep: "2 weeks", why: "Cheap and quick; shows infrastructure-as-code.", url: "https://developer.hashicorp.com/certifications/infrastructure-automation" },
+  { tier: "Strong add-on", name: "AWS Certified AI Practitioner (AIF-C01)", by: "Amazon Web Services", cost: "about US$100", prep: "2 weeks", why: "Light GenAI/ML cert that pairs well with SAA and your DocAsk project.", url: "https://aws.amazon.com/certification/certified-ai-practitioner/" },
+  { tier: "Situational", name: "Confluent Certified Developer for Apache Kafka (CCDAK)", by: "Confluent", cost: "about US$150", prep: "3 weeks", why: "Worth it if you target messaging / CPaaS / fintech streaming teams.", url: "https://www.confluent.io/certification/" },
+  { tier: "Situational", name: "Spring Certified Professional", by: "Broadcom (VMware)", cost: "paid", prep: "3–4 weeks", why: "Niche, but some Java-heavy MNCs recognise it.", url: "https://www.vmware.com/learning/certification" },
+  { tier: "Situational", name: "Microsoft Azure Developer Associate (AZ-204)", by: "Microsoft", cost: "about US$165 (lower in India)", prep: "4–6 weeks", why: "Only if your target companies are Azure shops; otherwise stick with AWS.", url: "https://learn.microsoft.com/credentials/certifications/azure-developer/" },
+  { tier: "Free", name: "GitHub Foundations / GitHub Actions", by: "GitHub", cost: "free for some learners, otherwise paid", prep: "1 week", why: "Easy badge for LinkedIn; check current pricing.", url: "https://resources.github.com/learn/certifications/" },
+  { tier: "Free", name: "AWS Cloud Quest / Skill Builder badges", by: "Amazon Web Services", cost: "free", prep: "ongoing", why: "Free digital badges while you study for SAA.", url: "https://skillbuilder.aws/" },
+  { tier: "Free", name: "DeepLearning.AI short-course certificates", by: "DeepLearning.AI", cost: "free", prep: "1–2 hrs each", why: "Quick GenAI credentials for LinkedIn alongside DocAsk.", url: "https://www.deeplearning.ai/short-courses/" },
+];
+
+
+// ---------- STATE ----------
+const LS_KEY = "switch-ready-v1";
+let state = { done: {}, start: null };
+let docRef = null, writing = Promise.resolve(), saveT = null;
+try { const raw = localStorage.getItem(LS_KEY); if (raw) state = Object.assign(state, JSON.parse(raw)); } catch (e) {}
+
+function persist() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+  if (!docRef) return;
+  clearTimeout(saveT);
+  saveT = setTimeout(() => {
+    const snapshot = { done: state.done, start: state.start || null, updatedAt: new Date().toISOString() };
+    writing = writing.then(() => docRef.set(snapshot)).then(() => setSync(true, "Synced to your account"))
+      .catch(() => setSync(false, "Couldn't sync. Saved on this device"));
+  }, 700);
+}
+function setSync(ok, text) { const el = document.getElementById("sync"); el.classList.toggle("ok", ok); el.querySelector("span").textContent = text; }
+
+async function connectStore() {
+  if (!window.claude || !window.claude.use) return;
+  try {
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return;
+    const id = await user.id();
+    if (!id) return;
+    docRef = db.collection("data/users/" + id).doc("progress");
+    const snap = await docRef.get();
+    if (snap.exists) {
+      const d = snap.data() || {};
+      state.done = Object.assign({}, state.done, d.done || {});
+      if (d.start && !state.start) state.start = d.start;
+      try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+      render();
+    }
+    setSync(true, "Synced to your account");
+    if (!snap.exists && Object.keys(state.done).length) persist();
+  } catch (e) { setSync(false, "Saved on this device"); }
+}
+
+function toggle(id, on) {
+  if (on) state.done[id] = 1; else delete state.done[id];
+  persist(); updateMeters();
+}
+
+// ---------- DERIVED ----------
+const titleOf = s => TITLE_FIX[s] || s.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" ").replace(/\bIi\b/g, "II").replace(/\bIii\b/g, "III").replace(/\bBst\b/g, "BST");
+const DSA_LIST = Object.entries(DSA).map(([pat, str]) => ({ pat, items: str.split(" ").map(x => { const [slug, d] = x.split(":"); return { id: "dsa-" + slug, slug, d, title: titleOf(slug) }; }) }));
+const weekIds = w => w.tasks.map((_, i) => `v2w${w.n}-t${i}`);
+const ALL = {
+  roadmap: WEEKS.flatMap(weekIds),
+  dsa: DSA_LIST.flatMap(p => p.items.map(i => i.id)),
+  design: [...HLD_BASICS.map((_, i) => "hb-" + i), ...HLD.map((_, i) => "hld-" + i), ...LLD_BASICS.map((_, i) => "lb-" + i), ...LLD.map((_, i) => "lld-" + i)],
+  skills: SKILLS.flatMap(s => s.items.map((_, i) => `sk-${s.key}-${i}`)),
+  projects: PROJECTS.flatMap(p => p.milestones.map((_, i) => `${p.key}-m${i}`)),
+  interview: [...JAVA_QS.map((_, i) => "jq-" + i), ...STAR.map((_, i) => "star-" + i)],
+  certs: CERTS.map((_, i) => "cert-" + i),
+  videos: VIDEOS.flatMap((g, gi) => g.items.map((_, i) => `vid-${gi}-${i}`)),
+  resume: [...RESUME_FIXES.map((_, i) => "rf-" + i), ...LINKEDIN.map((_, i) => "li-" + i)],
+};
+const count = ids => ids.filter(id => state.done[id]).length;
+const pct = ids => ids.length ? Math.round(100 * count(ids) / ids.length) : 0;
+function currentWeek() {
+  if (!state.start) return null;
+  const days = Math.floor((Date.now() - new Date(state.start + "T00:00:00").getTime()) / 864e5);
+  return Math.max(1, Math.min(WEEKS.length, Math.floor(days / 7) + 1));
+}
+
+// ---------- HELPERS ----------
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const md = s => esc(s).replace(/`([^`]+)`/g, '<code class="mono">$1</code>');
+const check = (id, text) => `<label class="check"><input type="checkbox" data-id="${id}" ${state.done[id] ? "checked" : ""}><span>${md(text)}</span></label>`;
+const resLink = r => `<a href="${r.url}" target="_blank" rel="noopener"><b>${r.kind}</b><span>${esc(r.label)}</span></a>`;
+function toast(t) { const el = document.getElementById("toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 1600); }
+
+// ---------- VIEWS ----------
+const V = {};
+V.overview = () => {
+  const cw = currentWeek();
+  const heat = WEEKS.map(w => { const ids = weekIds(w); const p = pct(ids); const l = p === 0 ? 0 : p < 34 ? 1 : p < 67 ? 2 : p < 100 ? 3 : 4;
+    return `<button data-week="${w.n}" data-l="${l}" class="${cw === w.n ? "now" : ""}" title="Week ${w.n}: ${esc(w.theme)} (${p}%)" aria-label="Week ${w.n}, ${p}% done">${w.n}</button>`; }).join("");
+  const areas = [["Roadmap tasks", "roadmap"], ["DSA problems", "dsa"], ["System design", "design"], ["Skills checklist", "skills"], ["Projects", "projects"], ["Interview prep", "interview"], ["Video courses", "videos"], ["Certifications", "certs"], ["Resume & LinkedIn", "resume"]];
+  const bars = areas.map(([n, k]) => `<div class="barrow"><span>${n}</span><div class="t"><span style="width:${pct(ALL[k])}%"></span></div><span class="v mono">${count(ALL[k])}/${ALL[k].length}</span></div>`).join("");
+  const wk = WEEKS[(cw || 1) - 1];
+  const todo = weekIds(wk).map((id, i) => check(id, wk.tasks[i])).join("");
+  return `
+  <div class="stack"><span class="eyebrow">Your plan</span><h2>From 2 years of production work to an MNC backend offer</h2>
+  <p class="lede">Built from your resume and portfolio. Track: Java backend (SDE-1 / Software Engineer, 2–3 yrs). Sized for 1 hour on weekdays (30 min DSA + 30 min topic) and about 2 hours on each weekend day. The roadmap opens with resume fixes, so you can apply early if a good opening comes up. Tick things off as you go; progress saves automatically.</p></div>
+
+  <div class="grid2">
+    <div class="panel stack">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h3>24-week grid</h3>
+        <label class="sync" for="startDate">Start date <input type="date" id="startDate" value="${state.start || ""}"></label></div>
+      <div class="heat" id="heat">${heat}</div>
+      <div class="heat-legend"><span>${cw ? "Outlined: this week (" + cw + ")" : "Set a start date to track the current week"}</span><span>Darker = more tasks done</span></div>
+    </div>
+    <div class="panel stack"><h3>Progress by area</h3><div class="bars">${bars}</div></div>
+  </div>
+
+  <div class="panel stack">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h3>${cw ? "This week" : "Start here"}: week ${wk.n}, ${esc(wk.theme)}</h3><a href="#roadmap" data-open="${wk.n}">Full week with resources</a></div>
+    <p class="why">${esc(wk.why)}</p>
+    <div>${todo}</div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel stack"><h3>What you already bring</h3><ul class="dots strength">
+      <li>About 2 years of production backend work across Java/Spring Boot, Python/Django, Node.js and Laravel</li>
+      <li>Real messaging-domain depth (SMPP, RCS, WhatsApp Business API), which is rare and valued by CPaaS and fintech teams</li>
+      <li>Controller–Service–DAO API design, MySQL/MSSQL tuning, 20+ production APIs</li>
+      <li>Linux server administration over SSH and hands-on CI/CD</li>
+      <li>Fluent with AI coding tools, with a stated habit of verifying output</li>
+      <li>Cybersecurity and monitoring products at Velox</li></ul></div>
+    <div class="panel stack"><h3>What MNC loops will test that isn't visible yet</h3><ul class="dots gap">
+      <li>DSA at LeetCode-medium level under time pressure</li>
+      <li>Spring depth: JPA internals, transactions, Security, testing</li>
+      <li>System design: HLD building blocks and LLD with design patterns</li>
+      <li>Docker, Kubernetes, AWS, Kafka, Redis</li>
+      <li>GenAI engineering (RAG, tool calling), now common in JDs</li>
+      <li>A public, deployed, tested project, plus a tighter one-page resume</li></ul></div>
+  </div>
+
+  <div class="panel stack"><h3>Move progress between devices</h3>
+    <p class="lede" style="font-size:.9rem">Progress is saved in this browser. To continue on another device, copy your progress code here and paste it there.</p>
+    <div class="toolbar"><button class="btn" id="exportBtn">Copy progress code</button><input type="search" id="importCode" placeholder="Paste a progress code" aria-label="Progress code" style="flex:1;min-width:180px"><button class="btn primary" id="importBtn">Load</button></div></div>
+  <div class="panel stack"><h3>A typical week</h3>
+    <div class="day"><b>Mon–Fri</b><span>30 min: 1 DSA problem (stop at 30 min and read the solution) · 30 min: the week's topic (video or docs)</span>
+    <b>Saturday</b><span>About 2 hrs: project work (from week 6) or the weekend task</span>
+    <b>Sunday</b><span>About 2 hrs: project work + 20 min to re-solve one problem you got wrong</span></div>
+    <p class="lede" style="font-size:.9rem">If a week runs over, carry the leftovers forward rather than skipping DSA; consistency matters more than speed. Missed a day? Skip the topic, not the DSA problem. If you get a weekend with more time, use it to get ahead on the project.</p>
+  </div>`;
+};
+
+V.roadmap = () => {
+  const cw = currentWeek();
+  let phase = "";
+  return `<div class="stack"><span class="eyebrow">Roadmap</span><h2>Twenty-four weeks, one theme each</h2>
+    <p class="lede">Each week has a 30-minute DSA block and a 30-minute topic block on weekdays, plus a weekend task. Project work starts in week 6. Open a week to see its tasks and curated resources.</p>
+    <div class="toolbar"><button class="btn" id="expandAll">Expand all</button><button class="btn" id="collapseAll">Collapse all</button></div></div>
+  <div class="stack">${WEEKS.map(w => {
+    const ids = weekIds(w); const c = count(ids);
+    const ph = w.phase !== phase ? (phase = w.phase, "") : "";
+    return `<details class="week ${cw === w.n ? "current" : ""}" id="week-${w.n}" ${cw === w.n ? "open" : ""}>
+      <summary><span class="wk-n mono">${String(w.n).padStart(2, "0")}</span><span class="wk-meta"><span class="ph">${esc(w.phase)}${cw === w.n ? " · this week" : ""}</span><h3>${esc(w.theme)}</h3></span><span class="wk-prog ${c === ids.length ? "full" : ""}" data-wk="${w.n}">${c}/${ids.length}</span></summary>
+      <div class="body"><p class="why">${esc(w.why)}</p>
+        <div>${w.tasks.map((t, i) => check(ids[i], t)).join("")}</div>
+        <div class="res"><div class="eyebrow" style="margin:4px 8px 6px">Resources</div>${w.res.map(resLink).join("")}</div>
+      </div></details>`; }).join("")}</div>`;
+};
+
+let dsaFilter = { pat: "all", diff: "all", status: "all" };
+V.dsa = () => {
+  const total = ALL.dsa.length;
+  const opts = DSA_LIST.map(p => `<option value="${esc(p.pat)}" ${dsaFilter.pat === p.pat ? "selected" : ""}>${esc(p.pat)}</option>`).join("");
+  const blocks = DSA_LIST.filter(p => dsaFilter.pat === "all" || p.pat === dsaFilter.pat).map(p => {
+    const items = p.items.filter(i => (dsaFilter.diff === "all" || i.d === dsaFilter.diff) && (dsaFilter.status === "all" || (dsaFilter.status === "done") === !!state.done[i.id]));
+    if (!items.length) return "";
+    const c = p.items.filter(i => state.done[i.id]).length;
+    return `<div class="pattern"><header><h3>${esc(p.pat)}</h3><span class="tagrow"><span class="chip">${DSA_WHEN[p.pat]}</span><span class="chip acc mono">${c}/${p.items.length}</span></span></header>
+      <ul>${items.map(i => `<li class="prob ${state.done[i.id] ? "is-done" : ""}"><input type="checkbox" data-id="${i.id}" aria-label="Mark ${esc(i.title)} solved" ${state.done[i.id] ? "checked" : ""}><a href="https://leetcode.com/problems/${i.slug}/" target="_blank" rel="noopener">${esc(i.title)}</a><span class="chip ${i.d}">${{ E: "Easy", M: "Med", H: "Hard" }[i.d]}</span></li>`).join("")}</ul></div>`; }).join("");
+  const by = d => DSA_LIST.flatMap(p => p.items).filter(i => i.d === d);
+  return `<div class="stack"><span class="eyebrow">DSA</span><h2>${total} problems, grouped by pattern</h2>
+    <p class="lede">Learn the pattern first (watch the NeetCode or Striver explanation), then solve without looking. If you're stuck for 25 minutes, read the solution, then redo the problem from scratch two days later. Solve in Java.</p>
+    <div class="tagrow"><span class="chip E">Easy ${count(by("E").map(i => i.id))}/${by("E").length}</span><span class="chip M">Medium ${count(by("M").map(i => i.id))}/${by("M").length}</span><span class="chip H">Hard ${count(by("H").map(i => i.id))}/${by("H").length}</span></div>
+    <div class="toolbar">
+      <select id="fPat" aria-label="Pattern"><option value="all">All patterns</option>${opts}</select>
+      <select id="fDiff" aria-label="Difficulty"><option value="all">All levels</option><option value="E" ${dsaFilter.diff === "E" ? "selected" : ""}>Easy</option><option value="M" ${dsaFilter.diff === "M" ? "selected" : ""}>Medium</option><option value="H" ${dsaFilter.diff === "H" ? "selected" : ""}>Hard</option></select>
+      <select id="fStatus" aria-label="Status"><option value="all">All</option><option value="todo" ${dsaFilter.status === "todo" ? "selected" : ""}>To do</option><option value="done" ${dsaFilter.status === "done" ? "selected" : ""}>Solved</option></select>
+    </div></div>
+  <div class="stack">${blocks || '<div class="panel"><p class="lede">Nothing matches these filters.</p></div>'}</div>
+  <div class="panel res"><h3 style="margin-bottom:8px">Where to learn the patterns</h3>
+    ${[R("NeetCode roadmap + videos", "https://neetcode.io/roadmap", "video"), R("Striver A2Z DSA sheet", "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2", "video"), R("take U forward (YouTube)", "https://www.youtube.com/@takeUforward", "video"), R("LeetCode Top Interview 150", "https://leetcode.com/studyplan/top-interview-150/", "practice"), R("Big-O cheat sheet", "https://www.bigocheatsheet.com/", "doc")].map(resLink).join("")}</div>`;
+};
+
+V.design = () => `<div class="stack"><span class="eyebrow">System design</span><h2>High-level and low-level design</h2>
+  <p class="lede">For each HLD problem: requirements, estimates, API, data model, high-level diagram, then deep-dive two components and discuss trade-offs. Do it on paper or Excalidraw with a 45-minute timer, and speak out loud.</p></div>
+  <div class="grid2">
+    <div class="panel stack"><h3>HLD building blocks</h3><div>${HLD_BASICS.map((t, i) => check("hb-" + i, t)).join("")}</div></div>
+    <div class="panel stack"><h3>HLD practice problems</h3><div>${HLD.map(([t, d], i) => check("hld-" + i, `${t}: ${d}`)).join("")}</div></div>
+    <div class="panel stack"><h3>LLD foundations</h3><div>${LLD_BASICS.map((t, i) => check("lb-" + i, t)).join("")}</div></div>
+    <div class="panel stack"><h3>LLD practice (code these in Java)</h3><div>${LLD.map(([t, d], i) => check("lld-" + i, `${t}: ${d}`)).join("")}</div></div>
+  </div>
+  <div class="panel res"><h3 style="margin-bottom:8px">Resources</h3>${[
+    R("System Design Primer", "https://github.com/donnemartin/system-design-primer", "doc"), R("ByteByteGo (YouTube)", "https://www.youtube.com/@ByteByteGo", "video"),
+    R("Gaurav Sen (YouTube)", "https://www.youtube.com/@gkcs", "video"), R("Hello Interview: system design in a hurry", "https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction", "doc"),
+    R("roadmap.sh: System design", "https://roadmap.sh/system-design", "doc"), R("Refactoring.Guru: Design patterns", "https://refactoring.guru/design-patterns", "doc"),
+    R("Concept && Coding: LLD (YouTube)", "https://www.youtube.com/@ConceptandCoding", "video"), R("Designing Data-Intensive Applications (book, Kleppmann)", "https://dataintensive.net/", "book"),
+    R("Excalidraw (for diagrams)", "https://excalidraw.com/", "practice")].map(resLink).join("")}</div>`;
+
+V.skills = () => `<div class="stack"><span class="eyebrow">Skills</span><h2>The full skill map</h2>
+  <p class="lede">Tick a topic once you could explain it to an interviewer and have used it in code. The dots show where you are starting from, based on your resume (●●● strong, ●○○ new).</p></div>
+  <div class="grid2">${SKILLS.map(s => { const ids = s.items.map((_, i) => `sk-${s.key}-${i}`);
+    return `<div class="panel stack"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><h3>${esc(s.name)}</h3><span class="tagrow"><span class="chip" title="Starting level">${"●".repeat(s.level)}${"○".repeat(3 - s.level)}</span><span class="chip acc mono" data-skill="${s.key}">${count(ids)}/${ids.length}</span></span></div>
+      <div>${s.items.map((t, i) => check(ids[i], t)).join("")}</div></div>`; }).join("")}</div>`;
+
+V.projects = () => `<div class="stack"><span class="eyebrow">Portfolio projects</span><h2>Three projects that prove the gaps are closed</h2>
+  <p class="lede">Each is public on GitHub with a strong README, tests, a diagram and a live link or demo video. Add them to the portfolio site and the resume as you finish them.</p></div>
+  ${PROJECTS.map(p => { const ids = p.milestones.map((_, i) => `${p.key}-m${i}`);
+    return `<div class="panel stack"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h3 style="font-size:1.4rem">${esc(p.name)}</h3><span class="tagrow"><span class="chip">${esc(p.tag)}</span><span class="chip acc mono">${count(ids)}/${ids.length}</span></span></div>
+      <p>${esc(p.pitch)}</p>
+      <div class="tagrow">${p.stack.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+      <p class="lede" style="font-size:.9rem"><b>Proves:</b> ${esc(p.proves)}</p>
+      <div>${p.milestones.map((t, i) => check(ids[i], t)).join("")}</div></div>`; }).join("")}
+  <div class="panel stack"><h3>What makes a project count with MNC reviewers</h3><ul class="dots">
+    <li>README opens with the problem and a diagram, then "run it in one command"</li>
+    <li>Tests and a green CI badge</li>
+    <li>Numbers: load-test results, latency, coverage</li>
+    <li>A short "design decisions and trade-offs" section, which interviewers will ask about</li>
+    <li>Small, meaningful commits rather than one giant upload</li></ul></div>`;
+
+V.interview = () => `<div class="stack"><span class="eyebrow">Interview prep</span><h2>The MNC loop and how to prepare for each round</h2></div>
+  <div class="panel"><dl class="kv">${LOOP.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("")}</dl></div>
+  <div class="grid2">
+    <div class="panel stack"><h3>Tell me about yourself (60 seconds)</h3>
+      <blockquote id="tmay">I'm a backend engineer with about two years of production experience. At MDS Digital Media I owned backend work on a high-volume SMPP messaging platform in Django and MySQL, built a WhatsApp Business API app end to end, and shipped 20+ APIs for an omnichannel platform. At Velox I'm building Java and Spring Boot services for network monitoring and dark-web monitoring. Outside work I built Relay, a notification platform on Kafka and AWS, to go deeper on distributed systems. I'm looking for a backend role where I can work on systems at larger scale.</blockquote>
+      <div><button class="btn" data-copy="tmay">Copy</button></div></div>
+    <div class="panel stack"><h3>Explaining the career break</h3>
+      <blockquote id="gap">From 2018 to 2023 I prepared full-time for the UPSC Civil Services exam. It taught me to work through a huge syllabus with discipline, and I cleared UGC NET along the way. During that time I decided engineering was where I wanted to build a career, completed a Java full-stack course, and since then I've shipped production systems at two companies.</blockquote>
+      <div><button class="btn" data-copy="gap">Copy</button></div>
+      <p class="lede" style="font-size:.88rem">Say it calmly and briefly, then move on to your work. Don't apologise for it.</p></div>
+  </div>
+  <div class="stack"><h3>Behavioural stories (STAR)</h3><p class="lede">Built from your real work. Fill in the numbers, rehearse each in under 2 minutes, and tick when ready. Map them to Amazon's Leadership Principles for Amazon loops.</p></div>
+  <div class="grid2">${STAR.map((s, i) => `<div class="panel star"><div style="display:flex;justify-content:space-between;gap:8px"><h3>${esc(s.title)}</h3></div><span class="src">${esc(s.src)} · "${esc(s.q)}"</span>
+    <dl><dt>S</dt><dd>${esc(s.s)}</dd><dt>T</dt><dd>${esc(s.t)}</dd><dt>A</dt><dd>${esc(s.a)}</dd><dt>R</dt><dd>${esc(s.r)}</dd></dl>${check("star-" + i, "Rehearsed with real numbers")}</div>`).join("")}</div>
+  <div class="panel stack"><h3>Java & Spring question bank</h3><p class="lede" style="font-size:.9rem">Tick only when you can answer out loud in 2 minutes with an example.</p>
+    <div class="grid2" style="gap:0 16px">${JAVA_QS.map((q, i) => check("jq-" + i, q)).join("")}</div></div>
+  <div class="grid2">
+    <div class="panel stack"><h3>Questions to ask them</h3><ul class="dots"><li>What does a typical week look like for this team?</li><li>How do you deploy, and how often?</li><li>What would success look like in my first 6 months?</li><li>What's the biggest technical challenge the team faces right now?</li></ul></div>
+    <div class="panel stack"><h3>Offer & negotiation</h3><ul class="dots"><li>Check pay bands on AmbitionBox, Glassdoor and levels.fyi for the exact company and level</li><li>Never give the first number if you can avoid it; anchor on market data, not your current CTC</li><li>Get competing offers in the same 2–3 week window</li><li>Know your notice period and whether a buyout is possible</li></ul></div>
+  </div>`;
+
+V.videos = () => `<div class="stack"><span class="eyebrow">Video courses</span><h2>Tutorial videos, grouped by topic</h2>
+  <p class="lede">Hand-picked free courses and channels. Links open the creator's channel or the course on YouTube. Tick a course once you've finished it. Watch at 1.25–1.5× and code along; don't just watch.</p></div>
+  <div class="grid2">${VIDEOS.map((g, gi) => `<div class="panel stack"><h3>${esc(g.topic)}</h3><div>${g.items.map(([t, by, url, note], i) => `<div class="prob" style="grid-template-columns:22px 1fr"><input type="checkbox" data-id="vid-${gi}-${i}" aria-label="Mark ${esc(t)} watched" ${state.done[`vid-${gi}-${i}`] ? "checked" : ""}><span style="min-width:0"><a href="${url}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px">${esc(t)}</a><br><span class="src">${esc(by)}${note ? " · " + esc(note) : ""}</span></span></div>`).join("")}</div></div>`).join("")}</div>`;
+
+V.certs = () => { const tiers = ["Do first", "Strong add-on", "Situational", "Free"];
+  return `<div class="stack"><span class="eyebrow">Certifications</span><h2>Which certifications are worth it for you</h2>
+  <p class="lede">Certifications help you get shortlisted, but projects and interviews get you the offer. With an hour a day, do just one: AWS SAA, studied in weeks 15–24. Add another only after you've switched, or if a target company asks for it. Prices are approximate; check the official page before booking.</p></div>
+  ${tiers.map(t => `<div class="stack"><h3>${t}</h3><div class="grid2">${CERTS.map((c, i) => c.tier !== t ? "" : `<div class="panel stack"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><a href="${c.url}" target="_blank" rel="noopener" style="font:700 1.02rem var(--f-display);color:var(--fg)">${esc(c.name)}</a></div>
+    <div class="tagrow"><span class="chip">${esc(c.by)}</span><span class="chip">${esc(c.cost)}</span><span class="chip acc">${esc(c.prep)}</span></div>
+    <p style="font-size:.92rem">${esc(c.why)}</p>${check("cert-" + i, "Passed")}</div>`).join("")}</div></div>`).join("")}`; };
+
+V.resume = () => `<div class="stack"><span class="eyebrow">Resume & LinkedIn</span><h2>Resume checklist</h2>
+  <p class="lede">Changes that make a resume scan better for MNC recruiters and ATS filters. Tick each one when it's done.</p></div>
+  <div class="panel">${RESUME_FIXES.map(([bad, good], i) => `<div class="fix"><div class="bad">${esc(bad)}</div><div>${check("rf-" + i, good)}</div></div>`).join("")}</div>
+  <div class="panel stack"><h3>Suggested bullets for the current role</h3><p class="lede" style="font-size:.9rem">Replace the [N]/[X] placeholders with real figures before using.</p>
+    ${VELOX_BULLETS.map((b, i) => `<blockquote id="vb${i}"><button class="btn copy" data-copy="vb${i}">Copy</button>${esc(b)}</blockquote>`).join("")}</div>
+  <div class="grid2">
+    <div class="panel stack"><h3>LinkedIn & Naukri</h3><div>${LINKEDIN.map((t, i) => check("li-" + i, t)).join("")}</div></div>
+    <div class="panel stack"><h3>Where to apply</h3><dl class="kv" style="grid-template-columns:1fr">${COMPANIES.map(([a, b]) => `<dt><b>${esc(a)}</b></dt><dd>${esc(b)}</dd>`).join("")}</dl>
+      <p class="lede" style="font-size:.88rem">Referrals convert far better than cold applications. Use LinkedIn to find alumni from Pillai College or ex-colleagues at these companies.</p></div>
+  </div>`;
+
+// ---------- RENDER / ROUTER ----------
+const ROUTES = Object.keys(V);
+function route() { const h = location.hash.slice(1); return ROUTES.includes(h) ? h : "overview"; }
+function render() {
+  const r = route();
+  document.getElementById("main").innerHTML = `<section class="view">${V[r]()}</section>`;
+  document.querySelectorAll("#tabs a").forEach(a => { if (a.getAttribute("href") === "#" + r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  updateMeters();
+}
+function updateMeters() {
+  const all = Object.values(ALL).flat();
+  const p = pct(all);
+  document.getElementById("pct").textContent = p + "%";
+  document.getElementById("pctFill").style.width = p + "%";
+}
+let pendingOpen = null;
+window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); if (pendingOpen) { const d = document.getElementById("week-" + pendingOpen); if (d) { d.open = true; d.scrollIntoView({ block: "start" }); } pendingOpen = null; } });
+
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.matches("input[type=checkbox][data-id]")) {
+    toggle(t.dataset.id, t.checked);
+    const li = t.closest(".prob"); if (li) li.classList.toggle("is-done", t.checked);
+    const r = route();
+    if (r === "overview" || r === "dsa" && dsaFilter.status !== "all") render();
+    else refreshCounts();
+  }
+  if (t.id === "startDate") { state.start = t.value || null; persist(); render(); toast(t.value ? "Start date saved" : "Start date cleared"); }
+  if (t.id === "fPat") { dsaFilter.pat = t.value; render(); }
+  if (t.id === "fDiff") { dsaFilter.diff = t.value; render(); }
+  if (t.id === "fStatus") { dsaFilter.status = t.value; render(); }
+});
+function refreshCounts() {
+  // Light re-render of counters without losing open <details> state.
+  const r = route();
+  if (r === "roadmap") WEEKS.forEach(w => { const el = document.querySelector(`[data-wk="${w.n}"]`); if (el) { const ids = weekIds(w); const c = count(ids); el.textContent = `${c}/${ids.length}`; el.classList.toggle("full", c === ids.length); } });
+  else { const y = window.scrollY; render(); window.scrollTo(0, y); }
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("button, a");
+  if (!t) return;
+  if (t.dataset.week) { pendingOpen = t.dataset.week; if (location.hash === "#roadmap") window.dispatchEvent(new HashChangeEvent("hashchange")); else location.hash = "roadmap"; }
+  if (t.dataset.open) { pendingOpen = t.dataset.open; }
+  if (t.id === "exportBtn") { const code = btoa(unescape(encodeURIComponent(JSON.stringify(state)))); try { navigator.clipboard.writeText(code).then(() => toast("Progress code copied"), () => { const i = document.getElementById("importCode"); i.value = code; i.select(); toast("Code selected. Press Ctrl+C"); }); } catch (err) {} }
+  if (t.id === "importBtn") { try { const d = JSON.parse(decodeURIComponent(escape(atob(document.getElementById("importCode").value.trim())))); state.done = Object.assign({}, state.done, d.done || {}); if (d.start) state.start = d.start; persist(); render(); toast("Progress loaded"); } catch (err) { toast("That code didn't work. Copy it again and retry"); } }
+  if (t.id === "expandAll") document.querySelectorAll("details.week").forEach(d => d.open = true);
+  if (t.id === "collapseAll") document.querySelectorAll("details.week").forEach(d => d.open = false);
+  if (t.dataset.copy) {
+    const el = document.getElementById(t.dataset.copy); const text = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join("").trim();
+    try { navigator.clipboard.writeText(text).then(() => toast("Copied"), () => selectText(el)); } catch (err) { selectText(el); }
+  }
+});
+function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Press Ctrl+C to copy"); }
+
+render();
+connectStore();
+</script>
+
+</body></html>
